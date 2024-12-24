@@ -13,15 +13,15 @@ body {
   padding: 0.5rem;
 }
 
-.cruciverba-container {
+#cruciverba-container {
   display: grid;
-  grid: repeat(7, 1fr) / repeat(11, 1fr)
+  grid: repeat(7, 1fr) / repeat(11, 1fr);
+    scrollbar-width: auto;
 }
 
 .editable-tile {
   border: 1px solid black;
   aspect-ratio: 1;
-  height: 2rem;
   position: relative;
   text-align: center;
   margin: 0;

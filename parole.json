@@ -3,30 +3,50 @@
     "numero": 1,
     "parola": "Dentrificio",
     "definizione": "Sostanza utilizzata per lavare i denti.",
-    "posizione": "A6"
+    "posizione": {
+      "x": 1,
+      "y": 1
+    },
+    "orientamento": "orizzontale"
   },
   {
     "numero": 2,
     "parola": "Stimolo",
     "definizione": "Fattore che induce una reazione o una risposta.",
-    "posizione": "D7"
+    "posizione": {
+      "x": 4,
+      "y": 0
+    },
+    "orientamento": "verticale"
   },
   {
     "numero": 3,
     "parola": "Naso",
     "definizione": "Organo del corpo umano e degli animali, situato nel volto, utilizzato per respirare e percepire gli odori.",
-    "posizione": "A3"
+    "posizione": {
+      "x": 1,
+      "y": 4
+    },
+    "orientamento": "orizzontale"
   },
   {
     "numero": 4,
     "parola": "Zione",
     "definizione": "Suffisso che indica un'azione o un risultato di un'azione.",
-    "posizione": "H7"
+    "posizione": {
+      "x": 8,
+      "y": 0
+    },
+    "orientamento": "verticale"
   },
   {
     "numero": 5,
     "parola": "Nesso",
     "definizione": "Relazione o legame tra due o più cose.",
-    "posizione": "C6"
+    "posizione": {
+      "x": 3,
+      "y": 1
+    },
+    "orientamento": "verticale"
   }
 ]
