@@ -4,7 +4,7 @@
     "parola": "Dentrificio",
     "definizione": "Sostanza utilizzata per lavare i denti.",
     "posizione": {
-      "x": 1,
+      "x": 0,
       "y": 1
     },
     "orientamento": "orizzontale"
@@ -14,7 +14,7 @@
     "parola": "Stimolo",
     "definizione": "Fattore che induce una reazione o una risposta.",
     "posizione": {
-      "x": 4,
+      "x": 3,
       "y": 0
     },
     "orientamento": "verticale"
@@ -24,7 +24,7 @@
     "parola": "Naso",
     "definizione": "Organo del corpo umano e degli animali, situato nel volto, utilizzato per respirare e percepire gli odori.",
     "posizione": {
-      "x": 1,
+      "x": 0,
       "y": 4
     },
     "orientamento": "orizzontale"
@@ -34,7 +34,7 @@
     "parola": "Zione",
     "definizione": "Suffisso che indica un'azione o un risultato di un'azione.",
     "posizione": {
-      "x": 8,
+      "x": 7,
       "y": 0
     },
     "orientamento": "verticale"
@@ -44,7 +44,7 @@
     "parola": "Nesso",
     "definizione": "Relazione o legame tra due o più cose.",
     "posizione": {
-      "x": 3,
+      "x": 2,
       "y": 1
     },
     "orientamento": "verticale"
