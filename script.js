@@ -1,5 +1,5 @@
 let jsonSoluzione
-let soluzione = Array.from({ length: 7 }, () => Array(11).fill(' '));
+let soluzione = Array.from({ length: 7 }, () => Array(11).fill(''));
 
 const caricaDatiCruciverba = () => {
   // fetch('https://biglieto-natale.netlify.app/parole.json')
@@ -23,7 +23,7 @@ const caricaMatrice = (jsonSoluzione) => {
 
 const disegnaCruciverba = () => {
   // < input class="editable-tile" type = "text" maxlength = "1" size = "1" disabled >
-  for (let i = 0; i < 88; i++) {
+  for (let i = 0; i < 77; i++) {
     // Crea l'elemento input
     const input = document.createElement("input");
     // Imposta gli attributi corretti
@@ -32,7 +32,12 @@ const disegnaCruciverba = () => {
     input.type = "text";
     input.maxLength = 1;
     input.size = 1;
-    input.disabled = true;
+    const y = Math.floor(i / 11)
+    const x = i % 11
+    input.setAttribute("data-y", y)
+    input.setAttribute("data-x", x)
+    console.log(soluzione);
+    input.disabled = soluzione[y][x] === '';
     document.getElementById("cruciverba-container").appendChild(input)
   }
 }
