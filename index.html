@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cruciverba: Destinazione</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <h2 style="text-align: center;">Cruciverba: Destinazione</h2>
+  <table id="cruciverba">
+    <!-- La griglia verrà creata dinamicamente -->
+  </table>
+
+  <h3>Definizioni</h3>
+  <ul id="definizioni">
+    <!-- Le definizioni verranno aggiunte dinamicamente -->
+  </ul>
+
+  <script src="script.js"></script>
+  <script>
+    // Caricare il JSON con le parole
+    fetch('parole.json')
+      .then(response => response.json())
+      .then(data => {
+        // Passa i dati al JavaScript
+        inizializzaCruciverba(data);
+      })
+      .catch(error => console.error('Errore nel caricare il JSON:', error));
+  </script>
+
+</body>
+
+</html>

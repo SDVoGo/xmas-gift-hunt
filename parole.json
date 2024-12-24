@@ -1,0 +1,86 @@
+[
+  {
+    "parola": "Diga",
+    "definizione": "Acqua che sgorga da una sorgente",
+    "orientamento": "orizzontale",
+    "x": 0,
+    "y": 0
+  },
+  {
+    "parola": "Euforia",
+    "definizione": "Emozione intensa di felicità o soddisfazione",
+    "orientamento": "orizzontale",
+    "x": 0,
+    "y": 1
+  },
+  {
+    "parola": "Sala",
+    "definizione": "Luogo in cui si conservano libri",
+    "orientamento": "verticale",
+    "x": 0,
+    "y": 3
+  },
+  {
+    "parola": "Tronco",
+    "definizione": "Parte di un albero che lo sostiene",
+    "orientamento": "verticale",
+    "x": 5,
+    "y": 0
+  },
+  {
+    "parola": "Fantasy",
+    "definizione": "Letteratura che racconta storie di fantasia",
+    "orientamento": "orizzontale",
+    "x": 2,
+    "y": 3
+  },
+  {
+    "parola": "Nastro",
+    "definizione": "Dispositivo che permette di registrare suoni",
+    "orientamento": "orizzontale",
+    "x": 4,
+    "y": 3
+  },
+  {
+    "parola": "Aria",
+    "definizione": "Che ha una forma regolare, ordinato",
+    "orientamento": "verticale",
+    "x": 3,
+    "y": 3
+  },
+  {
+    "parola": "Zinco",
+    "definizione": "Processo di trasformazione chimica dei metalli",
+    "orientamento": "verticale",
+    "x": 6,
+    "y": 3
+  },
+  {
+    "parola": "Indizio",
+    "definizione": "Zona geografica di una città",
+    "orientamento": "orizzontale",
+    "x": 1,
+    "y": 5
+  },
+  {
+    "parola": "Ombra",
+    "definizione": "Elemento che descrive un numero o un valore",
+    "orientamento": "verticale",
+    "x": 1,
+    "y": 7
+  },
+  {
+    "parola": "Nesso",
+    "definizione": "Relazione di causa ed effetto",
+    "orientamento": "orizzontale",
+    "x": 4,
+    "y": 7
+  },
+  {
+    "parola": "Eden",
+    "definizione": "Città famosa per il Colosseo",
+    "orientamento": "orizzontale",
+    "x": 2,
+    "y": 8
+  }
+]
