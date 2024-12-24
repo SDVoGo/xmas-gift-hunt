@@ -1,32 +1,32 @@
-table {
-  border-collapse: collapse;
-  margin: 20px auto;
-}
+body {
+  /* width: 100vw;
+  height: 100vh; */
+  box-sizing: border-box;
+  margin: 10px;
 
-td {
-  width: 40px;
-  height: 40px;
+  display: flex;
+    flex-direction: column;
   text-align: center;
-  vertical-align: middle;
-  border: 1px solid #000;
-  font-size: 18px;
-  font-weight: bold;
 }
 
-.input-cell {
-  background-color: #f0f0f0;
+.descr-init {
+  padding: 0.5rem;
 }
 
-input {
-  width: 100%;
-  height: 100%;
+.cruciverba-container {
+  display: grid;
+  grid: repeat(7, 1fr) / repeat(11, 1fr)
+}
+
+.editable-tile {
+  border: 1px solid black;
+  aspect-ratio: 1;
+  height: 2rem;
+  position: relative;
   text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  border: none;
-  background-color: transparent;
+  margin: 0;
 }
-
-input:focus {
-  outline: none;
+.editable-tile:disabled {
+  background-color: black;
+  border-color: white;
 }
