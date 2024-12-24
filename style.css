@@ -22,7 +22,6 @@ body {
 .editable-tile {
   border: 1px solid black;
   aspect-ratio: 1;
-  position: relative;
   text-align: center;
   margin: 0;
 }
