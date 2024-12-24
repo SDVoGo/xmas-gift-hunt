@@ -1,52 +1,59 @@
-let jsonSoluzione
-let soluzione = Array.from({ length: 7 }, () => Array(11).fill(''));
+let jsonSoluzione;
+let soluzione = Array.from({ length: 7 }, () => Array(11).fill(""));
 
-const caricaDatiCruciverba = () => {
-  // fetch('https://biglieto-natale.netlify.app/parole.json')
-  return fetch('./parole.json')
-    .then((response) => response.json())
-    .then((json) => jsonSoluzione = json);
-}
+const caricaDatiCruciverba = async () => {
+  try {
+    // Carica il file JSON
+    const response = await fetch('./parole.json');
+    const json = await response.json();
+    jsonSoluzione = json;
+  } catch (error) {
+    console.error('Errore nel caricamento dei dati:', error);
+  }
+};
 
 const caricaMatrice = (jsonSoluzione) => {
   jsonSoluzione.forEach(element => {
     if (element.orientamento == "orizzontale") {
-      for (let i = 0; i < element.parola.length; i++)
-        soluzione[element.posizione.y][element.posizione.x + i] = element.parola[i]
-    }
-    else {
-      for (let i = 0; i < element.parola.length; i++)
-        soluzione[element.posizione.y + i][element.posizione.x] = element.parola[i]
+      for (let i = 0; i < element.parola.length; i++) {
+        soluzione[element.posizione.y][element.posizione.x + i] = element.parola[i];
+      }
+    } else {
+      for (let i = 0; i < element.parola.length; i++) {
+        soluzione[element.posizione.y + i][element.posizione.x] = element.parola[i];
+      }
     }
   });
-}
+};
 
 const disegnaCruciverba = () => {
-  // < input class="editable-tile" type = "text" maxlength = "1" size = "1" disabled >
+  // Ciclo per disegnare 77 input nella griglia
   for (let i = 0; i < 77; i++) {
-    // Crea l'elemento input
     const input = document.createElement("input");
-    // Imposta gli attributi corretti
     input.classList.add("editable-tile");
-    input.id = i
+    input.id = i;
     input.type = "text";
     input.maxLength = 1;
     input.size = 1;
-    const y = Math.floor(i / 11)
-    const x = i % 11
-    input.setAttribute("data-y", y)
-    input.setAttribute("data-x", x)
-    console.log(soluzione);
-    input.disabled = soluzione[y][x] === '';
-    document.getElementById("cruciverba-container").appendChild(input)
+
+    // Calcolo le coordinate y e x dalla posizione
+    const y = Math.floor(i / 11);
+    const x = i % 11;
+
+    input.setAttribute("data-y", y);
+    input.setAttribute("data-x", x);
+
+    // Se la cella nella soluzione è vuota, disabilita l'input
+    input.disabled = soluzione[y][x].length === 0;
+
+    // Aggiungi l'input al contenitore
+    document.getElementById("cruciverba-container").appendChild(input);
   }
-}
+};
 
-window.addEventListener("load", () => {
-
-// Legge il file
-caricaDatiCruciverba()
-  .then((jsonSoluzione) => caricaMatrice(jsonSoluzione))
-  .then(disegnaCruciverba())
-
-})
+window.addEventListener("load", async () => {
+  // Carica i dati e la matrice in modo sequenziale
+  await caricaDatiCruciverba();
+  caricaMatrice(jsonSoluzione);
+  disegnaCruciverba();
+});
