@@ -63,12 +63,14 @@ const disegnaCruciverba = () => {
     // Calcolo le coordinate y e x dalla posizione
     const y = Math.floor(i / 11);
     const x = i % 11;
-
     input.setAttribute("data-y", y);
     input.setAttribute("data-x", x);
 
-    // Se la cella nella soluzione è vuota, disabilita l'input
-    input.disabled = soluzione[y][x].length === 0;
+    // Se la cella nella soluzione è vuota, disabilita l'input e aggiungi il numero
+    if (soluzione[y][x].length === 0) {
+      input.disabled = true;
+
+    }
 
     // Aggiungi l'input al contenitore
     document.getElementById("cruciverba-container").appendChild(input);
@@ -78,9 +80,12 @@ const disegnaCruciverba = () => {
 const creaFase2 = () => {
 
   const soluzioneFase2 = ["48.166484273443835", "7.299395126276755"]
+  const criptazioneFase2 = ["ZL.DFFZLSINZZNLNM", "I.SRRNRMSDFSIFIMM"]
 
   // Caselle riempibili per decifrare
-  soluzioneFase2.forEach(soluzione => {
+  for (let NordEst = 0; NordEst < 2; NordEst++) {
+    const soluzione = soluzioneFase2[NordEst]
+    const criptazione = criptazioneFase2[NordEst]
     // Crea lo span in cui va inserita la parte della soluzione
     const span = document.createElement("span")
     span.className = "soluzioneFase2"
@@ -95,16 +100,16 @@ const creaFase2 = () => {
       else {
         const input = document.createElement("input")
         // input.type = "number"
-        input.placeholder = soluzione[index]
+        input.placeholder = criptazione[index]
         input.maxLength = 1
         input.className = "input_fase2"
         input.setAttribute("data-placeholder", input.placeholder)
-        input.addEventListener("change", valorizzaRisultatoFase2)
+        input.addEventListener("input", valorizzaRisultatoFase2)
         span.appendChild(input)
       }
     }
     document.getElementById("fase2").appendChild(span)
-  });
+  }
 }
 
 const valorizzaRisultatoFase2 = (e) => {
