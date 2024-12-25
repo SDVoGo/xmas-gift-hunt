@@ -10,7 +10,7 @@
     "orientamento": "orizzontale"
   },
   {
-    "numero": 2,
+    "numero": 12,
     "parola": "Stimolo",
     "definizione": "Fattore che induce una reazione o una risposta.",
     "posizione": {
@@ -20,7 +20,7 @@
     "orientamento": "verticale"
   },
   {
-    "numero": 3,
+    "numero": 27,
     "parola": "Naso",
     "definizione": "Organo del corpo umano e degli animali, situato nel volto, utilizzato per respirare e percepire gli odori.",
     "posizione": {
@@ -40,7 +40,7 @@
     "orientamento": "verticale"
   },
   {
-    "numero": 5,
+    "numero": 33,
     "parola": "Nesso",
     "definizione": "Relazione o legame tra due o più cose.",
     "posizione": {

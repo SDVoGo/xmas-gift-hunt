@@ -1,4 +1,5 @@
 let jsonSoluzione;
+let jsonPosizioni;
 let soluzione = Array.from({ length: 7 }, () => Array(11).fill(""));
 
 const caricaDatiCruciverba = async () => {
@@ -7,6 +8,17 @@ const caricaDatiCruciverba = async () => {
     const response = await fetch('./parole.json');
     const json = await response.json();
     jsonSoluzione = json;
+  } catch (error) {
+    console.error('Errore nel caricamento dei dati:', error);
+  }
+};
+
+const caricaPosizioniCruciverba = async () => {
+  try {
+    // Carica il file JSON
+    const response = await fetch('./posizioni_aggiuntive.json');
+    const json = await response.json();
+    jsonPosizioni = json;
   } catch (error) {
     console.error('Errore nel caricamento dei dati:', error);
   }
@@ -69,7 +81,14 @@ const disegnaCruciverba = () => {
     // Se la cella nella soluzione è vuota, disabilita l'input e aggiungi il numero
     if (soluzione[y][x].length === 0) {
       input.disabled = true;
+    }
 
+    // Se c'è una posizione valorizzata sui suggerimenti lo carica
+    const posizione = jsonPosizioni.filter((item) => item.posizione.x == x && item.posizione.y == y)
+    if (posizione.length == 1) {
+      const hint = document.createElement("label")
+      hint.textContent = posizione.numero
+      hint.className = "hint"
     }
 
     // Aggiungi l'input al contenitore
@@ -124,6 +143,7 @@ const valorizzaRisultatoFase2 = (e) => {
 window.addEventListener("load", async () => {
   // Carica i dati e la matrice in modo sequenziale
   await caricaDatiCruciverba();
+  await caricaPosizioniCruciverba();
   disegnaCruciverba();
   caricaMatrice(jsonSoluzione);
 
