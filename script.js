@@ -14,16 +14,23 @@ const caricaDatiCruciverba = async () => {
 
 // Carica la matrice e sblocca i campi che andranno valorizzati
 const caricaMatrice = (jsonSoluzione) => {
+  let j = 0;
   jsonSoluzione.forEach(element => {
     if (element.orientamento == "orizzontale") {
       for (let i = 0; i < element.parola.length; i++) {
         soluzione[element.posizione.y][element.posizione.x + i] = element.parola[i];
-        document.querySelector(`[data-y='${element.posizione.y}'][data-x='${element.posizione.x + i}']`).removeAttribute("disabled")
+        const tile = document.querySelector(`[data-y='${element.posizione.y}'][data-x='${element.posizione.x + i}']`)
+        tile.removeAttribute("disabled")
+        tile.setAttribute("tabindex", j)
+        j++
       }
     } else {
       for (let i = 0; i < element.parola.length; i++) {
         soluzione[element.posizione.y + i][element.posizione.x] = element.parola[i];
-        document.querySelector(`[data-y="${element.posizione.y + i}"][data-x="${element.posizione.x}"]`).removeAttribute("disabled")
+        const tile = document.querySelector(`[data-y="${element.posizione.y + i}"][data-x="${element.posizione.x}"]`)
+        tile.removeAttribute("disabled")
+        tile.setAttribute("tabindex", j)
+        j++
       }
     }
   });
