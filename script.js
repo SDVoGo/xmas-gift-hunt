@@ -85,25 +85,34 @@ const creaFase2 = () => {
     const span = document.createElement("span")
     span.className = "soluzioneFase2"
     for (let index = 0; index < soluzione.length; index++) {
-    const input = document.createElement("input")
-      input.placeholder = soluzione[index]
-      input.maxLength = 1
-      input.className = "input_fase2"
-      input.setAttribute("data-placeholder", input.placeholder)
-      // input.setAttribute("disabled", soluzione[index].localeCompare("."))
-      input.addEventListener("change", valorizzaRisultatoFase2)
-      span.appendChild(input)
+      // Se è un punto basta una label
+      if (!soluzione[index].localeCompare(".")) {
+        const label = document.createElement("label")
+        label.textContent = "."
+        span.appendChild(label)
+      }
+      // Altrimeti fa un input
+      else {
+        const input = document.createElement("input")
+        // input.type = "number"
+        input.placeholder = soluzione[index]
+        input.maxLength = 1
+        input.className = "input_fase2"
+        input.setAttribute("data-placeholder", input.placeholder)
+        input.addEventListener("change", valorizzaRisultatoFase2)
+        span.appendChild(input)
+      }
     }
     document.getElementById("fase2").appendChild(span)
   });
 }
 
 const valorizzaRisultatoFase2 = (e) => {
-  //TODO: Valorizzare tutte le input della stessa classe
+  //Valorizzare tutte le input della stessa <classe></classe>
   const input_target = e.target
-  const input_associati = document.querySelectorAll("[data-placeholder]=" + input_target.getAttribute("data-placeholder"))
+  const input_associati = document.querySelectorAll("[data-placeholder='" + input_target.dataset.placeholder + "' ]")
   input_associati.forEach(input => {
-    input.value = input.target.value
+    input.value = input_target.value
   });
 }
 
