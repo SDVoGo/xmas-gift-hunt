@@ -29,3 +29,7 @@ body {
   background-color: black;
   border-color: white;
 }
+.definizione {
+  margin: 1rem 0;
+  display: block;
+}

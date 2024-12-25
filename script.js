@@ -16,6 +16,8 @@ const caricaDatiCruciverba = async () => {
 const caricaMatrice = (jsonSoluzione) => {
   let j = 0;
   jsonSoluzione.forEach(element => {
+
+    // Disegna soluzione e abilita caselle corrette
     if (element.orientamento == "orizzontale") {
       for (let i = 0; i < element.parola.length; i++) {
         soluzione[element.posizione.y][element.posizione.x + i] = element.parola[i];
@@ -33,6 +35,14 @@ const caricaMatrice = (jsonSoluzione) => {
         j++
       }
     }
+
+    // Aggiungi definizione
+    const definizione = document.createElement("span")
+    definizione.textContent = element.definizione
+    definizione.classList.add("definizione")
+
+    const containerDefinizioni = document.getElementById("cruciverba-definizioni")
+    containerDefinizioni.appendChild(definizione)
   });
 };
 
