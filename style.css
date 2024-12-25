@@ -20,7 +20,7 @@ body {
 }
 
 .editable-tile {
-  border: 1px solid black;
+  border: 1px solid grey;
   aspect-ratio: 1;
   text-align: center;
   margin: 0;
