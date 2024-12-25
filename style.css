@@ -47,3 +47,13 @@ hr {
   h3 {
     background-color: #3adb00ab;
 }
+.input_fase2 {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  aspect-ratio: 1;
+  width: 10px;
+
+  padding: 5px;
+  margin: 1rem;
+}

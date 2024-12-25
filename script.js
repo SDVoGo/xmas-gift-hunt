@@ -75,9 +75,27 @@ const disegnaCruciverba = () => {
   }
 };
 
+const creaFase2 = () => {
+  for (let index = 0; index < 10; index++) {
+    const input = document.createElement("input")
+    input.placeholder = "A"
+    input.maxLength = 1
+    input.className = "input_fase2"
+
+    const container_fase2 = document.getElementById("fase2").appendChild(input)
+  }
+}
+
+
 window.addEventListener("load", async () => {
   // Carica i dati e la matrice in modo sequenziale
   await caricaDatiCruciverba();
   disegnaCruciverba();
   caricaMatrice(jsonSoluzione);
+
+  // TODO: Qui si nasconderanno le definzione se si vince e si avvia la fase 2
+
+  // costruzione della fase 2
+  creaFase2()
+
 });
