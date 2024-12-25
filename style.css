@@ -17,7 +17,7 @@ hr {
 }
 .descr-init {
   padding: 0.5rem;
-  background-color: #02b50259;
+  background-color: #ffcb3057;
 }
 
 #cruciverba-container {
@@ -39,13 +39,14 @@ hr {
 .definizione {
   margin: 1rem 0;
   display: block;
-  background-color: #02b50259;
+  background-color: #ffcb3057;
+    text-align: left;
   }
   
   h1,
   h2,
   h3 {
-    background-color: #3adb00ab;
+    background-color: #ffcb30;
 }
 .input_fase2 {
   background-color: transparent;
@@ -55,5 +56,5 @@ hr {
   width: 10px;
 
   padding: 5px;
-  margin: 1rem;
+  margin: 0.3rem;
 }
