@@ -3,14 +3,21 @@ body {
   height: 100vh; */
   box-sizing: border-box;
   margin: 10px;
+  background-color: #ffe79f;
+    /* background-image: url('https: //m.media-amazon.com/images/I/61A0pWVm8sL._AC_UF1000,1000_QL80_.jpg'); */
 
   display: flex;
     flex-direction: column;
   text-align: center;
 }
 
+hr {
+  width: 95%;
+  border: 1px solid black;
+}
 .descr-init {
   padding: 0.5rem;
+  background-color: #02b50259;
 }
 
 #cruciverba-container {
@@ -26,10 +33,17 @@ body {
   margin: 0;
 }
 .editable-tile:disabled {
-  background-color: black;
+  background-color: #bf0000;
   border-color: white;
 }
 .definizione {
   margin: 1rem 0;
   display: block;
+  background-color: #02b50259;
+  }
+  
+  h1,
+  h2,
+  h3 {
+    background-color: #3adb00ab;
 }

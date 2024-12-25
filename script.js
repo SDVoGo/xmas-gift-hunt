@@ -38,7 +38,7 @@ const caricaMatrice = (jsonSoluzione) => {
 
     // Aggiungi definizione
     const definizione = document.createElement("span")
-    definizione.textContent = element.definizione
+    definizione.textContent = ` ${element.numero} - ${element.orientamento}: ${element.definizione}`
     definizione.classList.add("definizione")
 
     const containerDefinizioni = document.getElementById("cruciverba-definizioni")
