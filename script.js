@@ -76,16 +76,36 @@ const disegnaCruciverba = () => {
 };
 
 const creaFase2 = () => {
-  for (let index = 0; index < 10; index++) {
-    const input = document.createElement("input")
-    input.placeholder = "A"
-    input.maxLength = 1
-    input.className = "input_fase2"
 
-    const container_fase2 = document.getElementById("fase2").appendChild(input)
-  }
+  const soluzioneFase2 = ["48.166484273443835", "7.299395126276755"]
+
+  // Caselle riempibili per decifrare
+  soluzioneFase2.forEach(soluzione => {
+    // Crea lo span in cui va inserita la parte della soluzione
+    const span = document.createElement("span")
+    span.className = "soluzioneFase2"
+    for (let index = 0; index < soluzione.length; index++) {
+    const input = document.createElement("input")
+      input.placeholder = soluzione[index]
+      input.maxLength = 1
+      input.className = "input_fase2"
+      input.setAttribute("data-placeholder", input.placeholder)
+      // input.setAttribute("disabled", soluzione[index].localeCompare("."))
+      input.addEventListener("change", valorizzaRisultatoFase2)
+      span.appendChild(input)
+    }
+    document.getElementById("fase2").appendChild(span)
+  });
 }
 
+const valorizzaRisultatoFase2 = (e) => {
+  //TODO: Valorizzare tutte le input della stessa classe
+  const input_target = e.target
+  const input_associati = document.querySelectorAll("[data-placeholder]=" + input_target.getAttribute("data-placeholder"))
+  input_associati.forEach(input => {
+    input.value = input.target.value
+  });
+}
 
 window.addEventListener("load", async () => {
   // Carica i dati e la matrice in modo sequenziale
@@ -93,7 +113,7 @@ window.addEventListener("load", async () => {
   disegnaCruciverba();
   caricaMatrice(jsonSoluzione);
 
-  // TODO: Qui si nasconderanno le definzione se si vince e si avvia la fase 2
+  // TODO: Qui si nasconderanno le definzione (fase 1) se si vince e avviare la fase 2
 
   // costruzione della fase 2
   creaFase2()
