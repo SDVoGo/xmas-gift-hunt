@@ -39,6 +39,9 @@ const disegnaCruciverba = () => {
     input.type = "text";
     input.maxLength = 1;
     input.size = 1;
+    input.addEventListener("input", (e) => {
+      e.target.value = e.target.value.toUpperCase();
+    })
 
     // Calcolo le coordinate y e x dalla posizione
     const y = Math.floor(i / 11);
