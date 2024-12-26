@@ -157,6 +157,23 @@ const valorizzaRisultatoFase2 = (e) => {
 const convalidaFase1 = () => {
   // TODO: Qui si nasconderanno le definzione (fase 1) se si vince e avviare la fase 2
 
+  for (let y = 0; y < soluzione.length; y++) {
+    for (let x = 0; x < soluzione[y].length; x++) {
+
+      // Se la casella non doveva essere bloccata allora faccio il controllo
+      const rispostaCorretta = soluzione[y][x];
+      if (!rispostaCorretta.localeCompare("")) {
+
+        const tile = document.querySelector(`[data-x=${x}][data-y=${y}]`)
+        // Se anche solo una è sbagliata, salta
+        if (!rispostaCorretta.localeCompare(tile.value))
+          return
+      }
+    }
+
+  }
+
+
   // In caso di fase 1 risolto, nascondere le definizioni
   const definizioni = document.getElementById("cruciverba-definizioni")
   const fase2 = document.getElementById("fase2")
