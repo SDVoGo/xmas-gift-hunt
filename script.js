@@ -155,7 +155,7 @@ const valorizzaRisultatoFase2 = (e) => {
 }
 
 const convalidaFase1 = () => {
-  // TODO: Qui si nasconderanno le definzione (fase 1) se si vince e avviare la fase 2
+  // Qui si nasconderanno le definzione (fase 1) se si vince e avviare la fase 2
 
   for (let y = 0; y < soluzione.length; y++) {
     for (let x = 0; x < soluzione[y].length; x++) {
@@ -190,10 +190,16 @@ const convalidaFase1 = () => {
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
 const convalidaFase2 = async () => {
-  // TODO: Controllo vittora fase 2
-
+  // Controllo vittora fase 2
+  const soluzioneFase2 = "481664842734438357299395126276755"
   const container = document.getElementById("fase2")
-  const inputs = container.querySelectorAll("input")
+  const inputs = container.querySelectorAll(".input_fase2")
+  for (let i = 0; i < inputs.length; i++) {
+    if (soluzioneFase2[i] !== inputs[i].value)
+      return
+  }
+
+  // Disabilito i campi
   inputs.forEach(input => {
     input.disabled = true
   });
