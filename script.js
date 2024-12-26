@@ -151,6 +151,7 @@ const valorizzaRisultatoFase2 = (e) => {
   input_associati.forEach(input => {
     input.value = input_target.value
   });
+  convalidaFase2()
 }
 
 const convalidaFase1 = () => {
@@ -168,6 +169,38 @@ const convalidaFase1 = () => {
 
   definizioni.classList.add("riduci");
   fase2.classList.add("compari")
+}
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
+
+const convalidaFase2 = async () => {
+  // TODO: Controllo vittora fase 2
+
+  const container = document.getElementById("fase2")
+  const inputs = container.querySelectorAll("input")
+  inputs.forEach(input => {
+    input.disabled = true
+  });
+  const title_fase2 = container.getElementsByTagName("h2")[0]
+  const descr_fase2 = container.getElementsByClassName("descr-init")[0]
+  // Nascondi campo
+  title_fase2.classList.toggle("scompari-testo")
+  descr_fase2.classList.toggle("scompari-testo")
+  // Modifica scritta
+  title_fase2.innerText = "Fase 3: Comprensione"
+  descr_fase2.innerHTML = `Opss, che smemorato che sono. Stavo per dimenticarmi cosa stiamo cercando. Sul mio diario ho appuntato :
+  <p><b>
+  Per la fase due non fermarti,<br>
+prendi la prima sillaba, non sbagliarti,<br>
+    da ogni parola che hai risolto,<br>
+      la chiave troverai, se l'hai colto.</b></p>`
+  // Fai riapparire campo
+  await sleep(500)
+  title_fase2.classList.toggle("scompari-testo")
+  descr_fase2.classList.toggle("scompari-testo")
+
+  title_fase2.classList.toggle("compari")
+  descr_fase2.classList.toggle("compari")
+
 }
 
 window.addEventListener("load", async () => {

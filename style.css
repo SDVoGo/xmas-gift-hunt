@@ -95,6 +95,10 @@ hr {
   height: fit-content !important;
 }
 
+.scompari-testo {
+  color: transparent;
+  animation: color 0.4s;
+}
 #fase2 {
   overflow: hidden;
   opacity: 0;
