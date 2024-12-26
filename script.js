@@ -62,6 +62,10 @@ const disegnaCruciverba = () => {
 
   // Ciclo per disegnare 77 input nella griglia
   for (let i = 0; i < 77; i++) {
+    // Wrapper
+    const wrapper = document.createElement("span")
+    wrapper.classList.add("wrapper-editable-tile")
+
     const input = document.createElement("input");
     input.classList.add("editable-tile");
     input.id = i;
@@ -87,19 +91,24 @@ const disegnaCruciverba = () => {
     const posizione = jsonPosizioni.filter((item) => item.posizione.x == x && item.posizione.y == y)
     if (posizione.length == 1) {
       const hint = document.createElement("label")
-      hint.textContent = posizione.numero
+      hint.innerText = posizione.numero
       hint.className = "hint"
+      hint.htmlFor = i
+      wrapper.appendChild(hint)
     }
 
+    // Assembla il tutto 
+    wrapper.appendChild(input)
+
     // Aggiungi l'input al contenitore
-    document.getElementById("cruciverba-container").appendChild(input);
+    document.getElementById("cruciverba-container").appendChild(wrapper);
   }
 };
 
 const creaFase2 = () => {
 
   const soluzioneFase2 = ["48.166484273443835", "7.299395126276755"]
-  const criptazioneFase2 = ["ZL.DFFZLSINZZNLNM", "I.SRRNRMSDFSIFIMM"]
+  const criptazioneFase2 = ["ZL.DFFZLZSIOZZOLOM", "I.SRRORMDSFSIFIMM"]
 
   // Caselle riempibili per decifrare
   for (let NordEst = 0; NordEst < 2; NordEst++) {
