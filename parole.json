@@ -1,7 +1,7 @@
 [
   {
     "numero": 1,
-    "parola": "Dentrificio",
+    "parola": "DENTIFRICIO",
     "definizione": "Sostanza utilizzata per lavare i denti.",
     "posizione": {
       "x": 0,
@@ -11,7 +11,7 @@
   },
   {
     "numero": 12,
-    "parola": "Stimolo",
+    "parola": "STIMOLO",
     "definizione": "Fattore che induce una reazione o una risposta.",
     "posizione": {
       "x": 3,
@@ -21,7 +21,7 @@
   },
   {
     "numero": 27,
-    "parola": "Naso",
+    "parola": "NASO",
     "definizione": "Organo del corpo umano e degli animali, situato nel volto, utilizzato per respirare e percepire gli odori.",
     "posizione": {
       "x": 0,
@@ -31,7 +31,7 @@
   },
   {
     "numero": 4,
-    "parola": "Zione",
+    "parola": "ZIONE",
     "definizione": "Consanguigno di un genitore, ma enorme.",
     "posizione": {
       "x": 7,
@@ -41,7 +41,7 @@
   },
   {
     "numero": 33,
-    "parola": "Nesso",
+    "parola": "NESSO",
     "definizione": "Relazione o legame tra due o più cose.",
     "posizione": {
       "x": 2,

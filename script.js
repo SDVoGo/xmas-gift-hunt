@@ -162,11 +162,11 @@ const convalidaFase1 = () => {
 
       // Se la casella non doveva essere bloccata allora faccio il controllo
       const rispostaCorretta = soluzione[y][x];
-      if (!rispostaCorretta.localeCompare("")) {
+      if (rispostaCorretta !== "") {
 
-        const tile = document.querySelector(`[data-x=${x}][data-y=${y}]`)
+        const tile = document.querySelector(`[data-x='${x}'][data-y='${y}']`)
         // Se anche solo una è sbagliata, salta
-        if (!rispostaCorretta.localeCompare(tile.value))
+        if (!(rispostaCorretta === tile.value))
           return
       }
     }
