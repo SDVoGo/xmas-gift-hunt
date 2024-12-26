@@ -48,7 +48,7 @@ hr {
     height: 100%;
     position: relative;
 }
-.editable-tile:disabled {
+.editable-tile.disabled {
   background-color: #bf0000;
   border-color: white;
 }

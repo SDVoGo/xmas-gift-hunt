@@ -35,6 +35,7 @@ const caricaMatrice = (jsonSoluzione) => {
         soluzione[element.posizione.y][element.posizione.x + i] = element.parola[i];
         const tile = document.querySelector(`[data-y='${element.posizione.y}'][data-x='${element.posizione.x + i}']`)
         tile.removeAttribute("disabled")
+        tile.classList.remove("disabled")
         tile.setAttribute("tabindex", j)
         j++
       }
@@ -43,6 +44,7 @@ const caricaMatrice = (jsonSoluzione) => {
         soluzione[element.posizione.y + i][element.posizione.x] = element.parola[i];
         const tile = document.querySelector(`[data-y="${element.posizione.y + i}"][data-x="${element.posizione.x}"]`)
         tile.removeAttribute("disabled")
+        tile.classList.remove("disabled")
         tile.setAttribute("tabindex", j)
         j++
       }
@@ -85,6 +87,7 @@ const disegnaCruciverba = () => {
 
     // Se la cella nella soluzione è vuota, disabilita l'input e aggiungi il numero
     if (soluzione[y][x].length === 0) {
+      input.classList.add("disabled");
       input.disabled = true;
     }
 
@@ -157,6 +160,12 @@ const convalidaFase1 = () => {
   const definizioni = document.getElementById("cruciverba-definizioni")
   const fase2 = document.getElementById("fase2")
 
+  // Disabilita me modifiche al cruciverba (essendo utile per il prossimo step)
+  document.querySelectorAll(".editable-tile").forEach(input => { input.disabled = true });
+
+  // costruzione della fase 2
+  creaFase2()
+
   definizioni.classList.add("riduci");
   fase2.classList.add("compari")
 }
@@ -167,9 +176,4 @@ window.addEventListener("load", async () => {
   await caricaPosizioniCruciverba();
   disegnaCruciverba();
   caricaMatrice(jsonSoluzione);
-
-
-  // costruzione della fase 2
-  creaFase2()
-
 });
