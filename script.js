@@ -74,6 +74,7 @@ const disegnaCruciverba = () => {
     input.size = 1;
     input.addEventListener("input", (e) => {
       e.target.value = e.target.value.toUpperCase();
+      convalidaFase1()
     })
 
     // Calcolo le coordinate y e x dalla posizione
@@ -149,6 +150,14 @@ const valorizzaRisultatoFase2 = (e) => {
   });
 }
 
+const convalidaFase1 = () => {
+  // TODO: Qui si nasconderanno le definzione (fase 1) se si vince e avviare la fase 2
+
+  // In caso di fase 1 risolto, nascondere le definizioni
+  const definizioni = document.getElementById("cruciverba-definizioni")
+  definizioni.classList.add("riduci")
+}
+
 window.addEventListener("load", async () => {
   // Carica i dati e la matrice in modo sequenziale
   await caricaDatiCruciverba();
@@ -156,7 +165,6 @@ window.addEventListener("load", async () => {
   disegnaCruciverba();
   caricaMatrice(jsonSoluzione);
 
-  // TODO: Qui si nasconderanno le definzione (fase 1) se si vince e avviare la fase 2
 
   // costruzione della fase 2
   creaFase2()

@@ -77,3 +77,22 @@ hr {
 .soluzioneFase2 {
   display: block;
 }
+.riduci {
+  animation: shrink 2s ease-in-out forwards;
+}
+
+#cruciverba-definizioni {
+  overflow: hidden;
+}
+
+@keyframes shrink {
+  from {
+    max-height: 230px;
+    opacity: 1;
+  }
+
+  to {
+    max-height: 0px;
+    opacity: 0;
+  }
+}
