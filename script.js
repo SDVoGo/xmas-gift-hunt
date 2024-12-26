@@ -91,7 +91,7 @@ const disegnaCruciverba = () => {
     const posizione = jsonPosizioni.filter((item) => item.posizione.x == x && item.posizione.y == y)
     if (posizione.length == 1) {
       const hint = document.createElement("label")
-      hint.innerText = posizione.numero
+      hint.innerText = posizione[0].numero
       hint.className = "hint"
       hint.htmlFor = i
       wrapper.appendChild(hint)
@@ -141,7 +141,7 @@ const creaFase2 = () => {
 }
 
 const valorizzaRisultatoFase2 = (e) => {
-  //Valorizzare tutte le input della stessa <classe></classe>
+  //Valorizzare tutte le input della stessa classe
   const input_target = e.target
   const input_associati = document.querySelectorAll("[data-placeholder='" + input_target.dataset.placeholder + "' ]")
   input_associati.forEach(input => {
