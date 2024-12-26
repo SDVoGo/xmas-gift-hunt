@@ -155,7 +155,10 @@ const convalidaFase1 = () => {
 
   // In caso di fase 1 risolto, nascondere le definizioni
   const definizioni = document.getElementById("cruciverba-definizioni")
-  definizioni.classList.add("riduci")
+  const fase2 = document.getElementById("fase2")
+
+  definizioni.classList.add("riduci");
+  fase2.classList.add("compari")
 }
 
 window.addEventListener("load", async () => {
