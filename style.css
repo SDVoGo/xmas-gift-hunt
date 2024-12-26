@@ -84,9 +84,9 @@ hr {
 }
 
 .riduci {
-  transition: 1s ease-in-out;
+  transition: 0.7s ease-in-out;
   height: 0 !important;
-  /* opacity: 0 !important; */
+  opacity: 0 !important;
 }
 
 .compari {
