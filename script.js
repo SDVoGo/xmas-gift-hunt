@@ -1,6 +1,7 @@
 let jsonSoluzione;
 let jsonPosizioni;
 let soluzione = Array.from({ length: 7 }, () => Array(11).fill(""));
+let movimentazioneCorrente = "";
 
 const caricaDatiCruciverba = async () => {
   try {
@@ -26,7 +27,6 @@ const caricaPosizioniCruciverba = async () => {
 
 // Carica la matrice e sblocca i campi che andranno valorizzati
 const caricaMatrice = (jsonSoluzione) => {
-  let j = 0;
   jsonSoluzione.forEach(element => {
 
     // Disegna soluzione e abilita caselle corrette
@@ -36,8 +36,11 @@ const caricaMatrice = (jsonSoluzione) => {
         const tile = document.querySelector(`[data-y='${element.posizione.y}'][data-x='${element.posizione.x + i}']`)
         tile.removeAttribute("disabled")
         tile.classList.remove("disabled")
-        tile.setAttribute("tabindex", j)
-        j++
+        // Indirizzamento per tab
+        if (i == element.parola.length - 1)
+          tile.setAttribute("data-orientamento", "stop")
+        else
+          tile.setAttribute("data-orientamento", element.orientamento)
       }
     } else {
       for (let i = 0; i < element.parola.length; i++) {
@@ -45,8 +48,11 @@ const caricaMatrice = (jsonSoluzione) => {
         const tile = document.querySelector(`[data-y="${element.posizione.y + i}"][data-x="${element.posizione.x}"]`)
         tile.removeAttribute("disabled")
         tile.classList.remove("disabled")
-        tile.setAttribute("tabindex", j)
-        j++
+        // Indirizzamento per tab
+        if (i == element.parola.length - 1)
+          tile.setAttribute("data-orientamento", "stop")
+        else
+          tile.setAttribute("data-orientamento", element.orientamento)
       }
     }
 
@@ -76,6 +82,8 @@ const disegnaCruciverba = () => {
     input.size = 1;
     input.addEventListener("input", (e) => {
       e.target.value = e.target.value.toUpperCase();
+      gestioneTab(e)
+      // Convalida la risposta
       convalidaFase1()
     })
 
@@ -224,6 +232,30 @@ prendi la prima sillaba, non sbagliarti,<br>
   title_fase2.classList.toggle("compari")
   descr_fase2.classList.toggle("compari")
 
+}
+
+const gestioneTab = (e) => {
+  if (e.target.value === "")
+    return
+  // Se il data-orientamento è Stop = pulisce MovimentazioneCorrente, non va da nessuna parte
+  // Se MovimentazioneCorrente è valorizzato segue quello
+  // Se MovimentazioneCorrente è vuoto e data-orientamento non è Stop, viene valorizzato dal data-orientamento
+  if (e.target.dataset.orientamento === "stop") {
+    movimentazioneCorrente = ""
+  }
+  else {
+    if (movimentazioneCorrente === "")
+      movimentazioneCorrente = e.target.dataset.orientamento
+    // Segue lo spostamento
+    if (movimentazioneCorrente === "orizzontale") {
+      const next = document.querySelector(`[data-y='${+e.target.dataset.y}'][data-x='${+e.target.dataset.x + 1}']`)
+      next.focus()
+    }
+    else if (movimentazioneCorrente === "verticale") {
+      const next = document.querySelector(`[data-y='${+e.target.dataset.y + 1}'][data-x='${+e.target.dataset.x}']`)
+      next.focus()
+    }
+  }
 }
 
 window.addEventListener("load", async () => {
