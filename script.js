@@ -119,8 +119,8 @@ const disegnaCruciverba = () => {
 
 const creaFase2 = () => {
 
-  const soluzioneFase2 = ["48.166484273443835", "7.299395126276755"]
-  const criptazioneFase2 = ["ZL.DFFZLZSIOZZOLOM", "I.SRRORMDSFSIFIMM"]
+  const soluzioneFase2 = ["48.16669745205527", "7.299419453336915"]
+  const criptazioneFase2 = ["ZL.DFFFRIZMS0MMSI", "I.SRRZDRZMNNNFRDM"]
 
   // Caselle riempibili per decifrare
   for (let NordEst = 0; NordEst < 2; NordEst++) {
@@ -158,8 +158,8 @@ const valorizzaRisultatoFase2 = (e) => {
   const input_associati = document.querySelectorAll("[data-placeholder='" + input_target.dataset.placeholder + "' ]")
   input_associati.forEach(input => {
     input.value = input_target.value
+    convalidaFase2()
   });
-  convalidaFase2()
 }
 
 const convalidaFase1 = () => {
@@ -199,7 +199,7 @@ const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
 const convalidaFase2 = async () => {
   // Controllo vittora fase 2
-  const soluzioneFase2 = "481664842734438357299395126276755"
+  const soluzioneFase2 = "48166697452055277299419453336915"
   const container = document.getElementById("fase2")
   const inputs = container.querySelectorAll(".input_fase2")
   for (let i = 0; i < inputs.length; i++) {
