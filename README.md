@@ -41,3 +41,4 @@ Hostato su Netlify per un caricamento rapido e accessibile ovunque.
 ## Note
 
 Questo progetto è stato realizzato come gesto personale per un familiare, ma può essere facilmente adattato come idea regalo digitale o gioco interattivo personalizzato.
+### ⚠️ Non usare il codice con copia e incolla. Dati i tempi stretti, sono presenti bugs (anche se non critici).
